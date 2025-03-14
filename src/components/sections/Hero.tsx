@@ -47,7 +47,7 @@ export default function Hero() {
           className="text-4xl md:text-7xl font-bold mb-6 text-white"
           variants={itemVariants}
         >
-          <span className="block">Hi, I'm</span>
+          <span className="block">Hi, I&apos;m</span>
           <span className="text-emerald-400">Anant Chovatiya</span>
         </motion.h1>
         
