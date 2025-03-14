@@ -148,7 +148,7 @@ export default function About() {
                                 </div>
 
                                 <p className="text-gray-300 ml-9">
-                                    I&apos;m open to freelance projects, full-time positions, and collaborative opportunities. Let's build something amazing together!
+                                    I&apos;m open to freelance projects, full-time positions, and collaborative opportunities. Let&apos;s build something amazing together!
                                 </p>
 
                                 <div className="mt-4 ml-9">
