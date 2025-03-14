@@ -66,7 +66,7 @@ export default function About() {
                             transition={{ duration: 0.5, delay: 0.4 }}
                         >
                             <p className="text-lg">
-                                Hello! I'm <span className="text-emerald-400 font-semibold">Anant Chovatiya</span>, a passionate <span className="font-semibold">Next.js Developer</span> with expertise in <span className="font-semibold">Artificial Intelligence & Machine Learning (AI/ML)</span>. I specialize in building high-performance, scalable applications that integrate modern web technologies with intelligent automation.
+                                <span>I&apos;m </span> <span className="text-emerald-400 font-semibold">Anant Chovatiya</span>, a passionate <span className="font-semibold">Next.js Developer</span> with expertise in <span className="font-semibold">Artificial Intelligence & Machine Learning (AI/ML)</span>. I specialize in building high-performance, scalable applications that integrate modern web technologies with intelligent automation.
                             </p>
 
                             <p>
