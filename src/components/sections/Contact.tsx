@@ -138,7 +138,7 @@ export default function Contact() {
             Get In <span className="text-emerald-400">Touch</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
+            Feel free to reach out if you&apos;re looking for a developer, have a question, or just want to connect.
           </p>
         </motion.div>
 
@@ -169,7 +169,7 @@ export default function Contact() {
                   </div>
                   <h4 className="text-xl font-semibold text-green-300 mb-2">Message Sent Successfully!</h4>
                   <p className="text-green-300/90">
-                    Thank you for reaching out! I'll get back to you as soon as possible.
+                    Thank you for reaching out! I&apos;ll get back to you as soon as possible.
                   </p>
                   <button 
                     onClick={() => setSubmitSuccess(false)}
