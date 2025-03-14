@@ -106,7 +106,7 @@ export default function Skills() {
             My <span className="text-emerald-400">Skills</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            A combination of technical expertise and soft skills that I've developed through education, projects, and work experience.
+            A combination of technical expertise and soft skills that I&apos;ve developed through education, projects, and work experience.
           </p>
         </motion.div>
 
