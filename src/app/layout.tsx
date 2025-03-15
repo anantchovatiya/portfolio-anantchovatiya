@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "IT Student Portfolio | John Doe",
+  title: "Anant Chovatiya",
   description: "Personal portfolio website showcasing my skills, projects, and experience as an IT student and developer.",
   keywords: ["portfolio", "developer", "IT student", "web development", "programming"],
 };
