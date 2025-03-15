@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Anant Chovatiya",
   description: "Personal portfolio website showcasing my skills, projects, and experience as an IT student and developer.",
   keywords: ["portfolio", "developer", "IT student", "web development", "programming"],
-  icons: "/favicon.ico"
+  icons: "/favicon-32x32.png"
 };
 
 export default function RootLayout({
