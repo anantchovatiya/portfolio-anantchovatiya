@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import LeetCodeBadges from './LeetCodeBadges';
-import LeetCodeHeatmap from './LeetCodeHeatmap';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import LeetCodeBadges from "./LeetCodeBadges";
+import LeetCodeHeatmap from "./LeetCodeHeatmap";
 
 interface LeetCodeStats {
   username: string;
@@ -21,12 +21,11 @@ interface LeetCodeStats {
   reputation: number;
   starRating?: number;
   contributionPoints?: number;
-  error?: string;
 }
 
 export default function LeetCodeStats() {
   const [stats, setStats] = useState<LeetCodeStats>({
-    username: '22it016',
+    username: "22it016",
     totalSolved: 0,
     totalQuestions: 0,
     easySolved: 0,
@@ -39,7 +38,7 @@ export default function LeetCodeStats() {
     ranking: 0,
     reputation: 0,
   });
-  
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,46 +46,45 @@ export default function LeetCodeStats() {
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   // Fetch LeetCode stats from our API
   useEffect(() => {
-  const fetchLeetCodeStats = async () => {
-    try {
-      setLoading(true);
-      
-      const response = await fetch('/api/leetcode');
-      
-      if (!response.ok) {
-        throw new Error(`Failed to fetch LeetCode stats: ${response.statusText}`);
-      }
-      
-      const data = await response.json();
-      
-      if (data.error) {
-        console.warn('Using fallback data:', data.error);
-        setError(data.error);
-      } else {
-        setError(null);
-      }
-      
-      setStats(prevStats => ({ ...prevStats, ...data })); // Preserve previous state
-    } catch (err) {
-      console.error('Error fetching LeetCode stats:', err);
-      setError('Failed to load LeetCode stats. Using fallback data.');
-    } finally {
-      setLoading(false);
-    }
-  };
-  
-  if (inView) {
-    fetchLeetCodeStats();
-  }
-}, [inView]);
+    const fetchLeetCodeStats = async () => {
+      try {
+        setLoading(true);
 
+        const response = await fetch("/api/leetcode");
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch LeetCode stats: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+          console.warn("Using fallback data:", data.error);
+          setError(data.error);
+        } else {
+          setError(null);
+        }
+
+        setStats(prevStats => ({ ...prevStats, ...data })); // Preserve previous state
+      } catch (err) {
+        console.error("Error fetching LeetCode stats:", err);
+        setError("Failed to load LeetCode stats. Using fallback data.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (inView) {
+      fetchLeetCodeStats();
+    }
+  }, [inView]);
 
   return (
     <section id="leetcode" className="py-16 md:py-20 relative">
-      {/* Subtle background elements */}
+      {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-900/70 to-gray-950/80 z-0"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.1),transparent_40%)] z-0"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(124,58,237,0.08),transparent_30%)] z-0"></div>
@@ -111,6 +109,18 @@ export default function LeetCodeStats() {
           </p>
         </motion.div>
 
+        {/* ✅ Display error message if any */}
+        {error && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="text-red-500 text-center mb-4"
+          >
+            {error}
+          </motion.div>
+        )}
+
         {loading ? (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
@@ -127,7 +137,7 @@ export default function LeetCodeStats() {
               >
                 <LeetCodeHeatmap />
               </motion.div>
-              
+
               {/* Badges Card - Right side */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -137,17 +147,17 @@ export default function LeetCodeStats() {
                 <LeetCodeBadges />
               </motion.div>
             </div>
-            
-            {/* Profile link - Below all cards */}
+
+            {/* Profile link */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="mt-10 flex justify-center"
             >
-              <a 
+              <a
                 href={`https://leetcode.com/${stats.username}/`}
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors"
               >
@@ -162,4 +172,4 @@ export default function LeetCodeStats() {
       </div>
     </section>
   );
-} 
+}
