@@ -50,38 +50,39 @@ export default function LeetCodeStats() {
   
   // Fetch LeetCode stats from our API
   useEffect(() => {
-    const fetchLeetCodeStats = async () => {
-      try {
-        setLoading(true);
-        
-        // Fetch main LeetCode stats
-        const response = await fetch('/api/leetcode');
-        
-        if (!response.ok) {
-          throw new Error(`Failed to fetch LeetCode stats: ${response.statusText}`);
-        }
-        
-        const data = await response.json();
-        
-        if (data.error) {
-          console.warn('Using fallback data:', data.error);
-          setError(data.error);
-        }
-        
-        setStats(data);
-        setError(null);
-      } catch (err) {
-        console.error('Error fetching LeetCode stats:', err);
-        setError('Failed to load LeetCode stats. Using fallback data.');
-      } finally {
-        setLoading(false);
+  const fetchLeetCodeStats = async () => {
+    try {
+      setLoading(true);
+      
+      const response = await fetch('/api/leetcode');
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch LeetCode stats: ${response.statusText}`);
       }
-    };
-    
-    if (inView) {
-      fetchLeetCodeStats();
+      
+      const data = await response.json();
+      
+      if (data.error) {
+        console.warn('Using fallback data:', data.error);
+        setError(data.error);
+      } else {
+        setError(null);
+      }
+      
+      setStats(prevStats => ({ ...prevStats, ...data })); // Preserve previous state
+    } catch (err) {
+      console.error('Error fetching LeetCode stats:', err);
+      setError('Failed to load LeetCode stats. Using fallback data.');
+    } finally {
+      setLoading(false);
     }
-  }, [inView]);
+  };
+  
+  if (inView) {
+    fetchLeetCodeStats();
+  }
+}, [inView]);
+
 
   return (
     <section id="leetcode" className="py-16 md:py-20 relative">
