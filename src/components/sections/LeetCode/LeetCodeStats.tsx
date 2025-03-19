@@ -65,6 +65,7 @@ export default function LeetCodeStats() {
         
         if (data.error) {
           console.warn('Using fallback data:', data.error);
+          setError(data.error);
         }
         
         setStats(data);
