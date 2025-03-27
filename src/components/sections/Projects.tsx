@@ -23,7 +23,7 @@ const projects: Project[] = [
     description: 'A full-stack e-commerce platform with user authentication, product catalog, cart functionality, and payment integration.',
     image: '/images/prolancehub.png',
     tags: ['Next.js', 'Node.js', 'MongoDB', 'Express.js', 'Tailwind CSS', 'React', 'ML', 'Gemini API', 'Google OAuth'],
-    demoLink: 'https:prolancehub.onrender.com',
+    demoLink: 'https://prolancehub.onrender.com',
     codeLink: 'https://github.com/anantchovatiya/ProlanceHub',
   },
   {
