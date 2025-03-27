@@ -84,7 +84,7 @@ export default function Hero() {
           </motion.a>
           
           <motion.a
-            href="https://drive.google.com/file/d/1asaRGYwChkrFqcGJfwDkkNH6AXL6brAg/view?usp=sharing"
+            href="https://drive.google.com/file/d/1N9MlBLXU_Kf88t-eDWmb_il9OUs2m4fr/view?usp=sharing"
             className="px-8 py-3 border border-white text-white rounded-full font-medium hover:bg-white/10 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
